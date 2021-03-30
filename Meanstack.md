@@ -396,12 +396,12 @@ OpenSSH (v6)               ALLOW       Anywhere (v6)
 
 This is how your Web Book Register Application will look like in browser:
 
-*image final result
+![](https://github.com/Arafly/MEAN_Stack/blob/master/assets/finalimage.PNG)
 
 >Remember to refresh on each addition or deletion of entries to see the changes
 
 If you observe, you'd see Mongoose is working in the terminal, reflecting, updating, fetching each actions you take on the browser, concerning deletion and addition.
 
-*mongoose image
+![](https://github.com/Arafly/MEAN_Stack/blob/master/assets/mongoose.PNG)
 
 Congratulations! You've just set up your fully functional MEAN Stack on Ubuntu.
