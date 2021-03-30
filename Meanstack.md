@@ -73,7 +73,7 @@ Install MongoDb and start it immediately after installation
 
 `sudo service mongodb start`
 
-You can erify that the service is up and running by running:
+You can verify that the service is up and running by running:
 
 `$ sudo systemctl status mongodb`
 
@@ -92,6 +92,15 @@ Output:
 
 
 ```
+
+Next, we install ‘body-parser'package
+
+We need ‘body-parser’ package to help us process JSON files passed in requests to the server.
+
+`sudo npm install body-parser`
+
+> It's important to not that 'body-parser' has been depreacted in Node version > 4.0 (This explains the warnings you get when you run 'node server.js'). To be replaced by a more functional express.json which help parse our json files and even more.
+> We won't delve into the implementation as this is just a simple tutorial
 
 Next, create a folder named ‘Books’
 
@@ -140,7 +149,7 @@ app.listen(app.get('port'), () => {
 
 ```
 
-## Step 3: Set up routes to the DB Server
+## Step 3: Set up routes in the DB Server
 
 In ‘Books’ folder, create a folder named apps
 
@@ -358,19 +367,41 @@ Change the directory back up to ‘Books’ and start the server by running this
 
 `cd .. && node server.js`
 
-The server should be up and running now on port 3300. Y
+The server should be up and running now on port 3300. 
 
 curl -s <http://localhost:3300>
 
 This should render an HTML page, it is hardly readable in the CLI, but we can also try and access it from the Internet.
 
-For this - you need to open TCP port 3300 in your AWS Web Console for your EC2 Instance.
+For this - you need to open port 3300 in your machine (I'm using a virtulabox).
 
+`sudo ufw allow 3300`
 
-*firewall part
+You can check that this firewall rule is allowed by running:
+
+`sudo ufw status`
+
+```
+Output:
+
+Status: active
+
+To                         Action      From
+--                         ------      ----
+OpenSSH                    ALLOW       Anywhere                  
+3300                       ALLOW       Anywhere                  
+OpenSSH (v6)               ALLOW       Anywhere (v6)             
+3300 (v6)                  ALLOW       Anywhere (v6)    
+```
 
 This is how your Web Book Register Application will look like in browser:
 
 *image final result
 
-Congratulations!
+>Remember to refresh on each addition or deletion of entries to see the changes
+
+If you observe, you'd see Mongoose is working in the terminal, reflecting, updating, fetching each actions you take on the browser, concerning deletion and addition.
+
+*mongoose image
+
+Congratulations! You've just set up your fully functional MEAN Stack on Ubuntu.
